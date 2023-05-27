@@ -5,6 +5,8 @@ import 'package:coffee_shop/modules/coffee_shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'orderpage.dart';
+
 class Shop extends StatefulWidget {
   const Shop({super.key});
 
@@ -13,16 +15,12 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
-  final snackBar = SnackBar(
-    content: const Text(
-      'Added Successfully',
-      style: TextStyle(color: Colors.black),
-    ),
-    backgroundColor: backgroundColor,
-  );
-  void addToCart(Coffee coffee) {
-    Provider.of<Coffeeshop>(context, listen: false).additemCoffee(coffee);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  void gotoorderpage(Coffee coffee) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => orderpage(
+        coffee: coffee,
+      ),
+    ));
   }
 
   @override
@@ -45,9 +43,9 @@ class _ShopState extends State<Shop> {
                 itemBuilder: (context, index) {
                   Coffee eachCoffee = value.coffeeshop[index];
                   return CoffeeTile(
-                    icon: const Icon(Icons.add),
+                    icon: const Icon(Icons.arrow_circle_right),
                     coffee: eachCoffee,
-                    onPressed: () => addToCart(eachCoffee),
+                    onPressed: () => gotoorderpage(eachCoffee),
                   );
                 },
               ))

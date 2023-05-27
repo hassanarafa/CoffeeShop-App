@@ -15,8 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (context) => Coffeeshop(),
-        builder: (context, child) => const MaterialApp(
+        builder: (context, child) => MaterialApp(
               debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                colorSchemeSeed: const Color(0xffC4A484),
+                useMaterial3: true,
+              ),
               home: HomePage(),
             ));
   }

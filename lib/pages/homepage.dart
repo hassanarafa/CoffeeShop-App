@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../Components/Button_Nav_Bar.dart';
 import '../constants.dart';
@@ -25,6 +26,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: backgroundColor,
+            statusBarIconBrightness: Brightness.dark),
+      ),
       bottomNavigationBar: Button_Nav_Bar(
         onchange: (p0) => navigationBar(p0),
       ),

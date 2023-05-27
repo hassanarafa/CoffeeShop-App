@@ -19,7 +19,8 @@ class CoffeeTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: ListTile(
-            trailing: IconButton(onPressed: onPressed, icon: icon),
+            trailing:
+                IconButton(iconSize: 30, onPressed: onPressed, icon: icon),
             title: Text(coffee.name),
             subtitle: Text(coffee.price),
             leading: Image.asset(coffee.imagePath),
