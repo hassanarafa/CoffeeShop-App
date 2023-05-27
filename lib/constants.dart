@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-var backgroundColor = Colors.grey[300];
+var backgroundColor = const Color(0xffE5E4E3);
